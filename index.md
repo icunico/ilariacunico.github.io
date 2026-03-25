@@ -23,4 +23,4 @@ Mi occupo di **dinamiche complesse degli ecosistemi** e reti trofiche marine.
 
 ## Contatti
 
-Puoi contattarmi via email: **ilaria.cunico@example.com**
+Puoi contattarmi via email: **i.cunico@ogs.it*
