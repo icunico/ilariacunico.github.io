@@ -120,6 +120,11 @@
       margin-bottom: 50px;
     }
 
+    /* Sposta verso l'alto i titoli principali e sottotitoli di circa 3cm */
+    .titles-block {
+      margin-top: -3cm;
+    }
+
     .grid-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -174,9 +179,11 @@
 </header>
 
 <main>
-  <h1>Welcome to the website of Ilaria Cunico</h1>
-  <p>Explore my research areas and interests</p>
-  <p class="work-in-progress"><strong>The work on this website is in progress.</strong></p>
+  <div class="titles-block">
+    <h1>Welcome to the website of Ilaria Cunico</h1>
+    <p>Explore my research areas and interests</p>
+    <p class="work-in-progress"><strong>The work on this website is in progress.</strong></p>
+  </div>
 
   <div class="grid-container">
     <a href="index.html" class="grid-item">
