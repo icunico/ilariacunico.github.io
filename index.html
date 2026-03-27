@@ -1,6 +1,5 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PXE62W3QKL"></script>
@@ -10,37 +9,21 @@
     gtag('js', new Date());
     gtag('config', 'G-PXE62W3QKL');
   </script>
-  
+
   <meta charset="UTF-8">
-  <title>Home — Ilaria Cunico</title>
+  <meta name="description" content="Ilaria Cunico — Philosophy of Complexity: riflessioni sul pensiero, la lentezza e la qualità delle azioni nella società moderna.">
+  <meta name="keywords" content="Ilaria Cunico, Philosophy of Complexity, pensiero critico, riflessione, multi-tasking">
+  <meta name="author" content="Ilaria Cunico">
+  <title>Philosophy of Complexity — Ilaria Cunico</title>
+
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
   <style>
     /* Reset e font */
     body, html {
       margin: 0;
       padding: 0;
       font-family: 'Roboto', sans-serif;
-    }
-
-    /* Sfondo principale */
-    main {
-      background-image: url('sfondo1.jpg'); /* metti la tua immagine qui */
-      background-size: cover;
-      background-position: center;
-      min-height: 100vh;
-      padding: 100px 30px 50px 30px;
-      position: relative;
-    }
-
-    /* Aggiungi il testo in basso a destra */
-    .background-text {
-      position: absolute;
-      bottom: 10px;
-      right: 10px;
-      color: white;
-      font-family: "Calisto MT", serif;
-      font-size: 15px;
-      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5)
     }
 
     header {
@@ -55,7 +38,6 @@
       z-index: 1000;
     }
 
-    /* Foto profilo ingrandita e proporzionata */
     header img {
       width: 100px;
       height: 100px;
@@ -92,62 +74,52 @@
       color: #1abc9c;
     }
 
-    main h1 {
-      text-align: center;
-      color: white;
-      text-shadow: 1px 1px 4px #000;
-      margin-bottom: 10px;
+    main {
+      background-image: url('sfondo1.jpg'); /* metti la tua immagine qui */
+      background-size: cover;
+      background-position: center;
+      min-height: 100vh;
+      padding: 100px 30px 50px 30px;
+      position: relative;
     }
 
-    main p {
-      text-align: center;
-      color: white;
-      text-shadow: 1px 1px 3px #000;
-      margin-bottom: 50px;
-    }
-
-    /* Aggiungi margine superiore alla scritta "work in progress" */
-    main p.work-in-progress {
-      text-align: center;
-      color: white;
-      text-shadow: 1px 1px 3px #000;
-      transform: translateY(-1cm);
-      margin-bottom: 50px;
-    }
-
-    /* Sposta verso l'alto i titoli principali e sottotitoli di circa 3cm */
     .titles-block {
       margin-top: -3cm;
     }
 
-    .grid-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 30px;
-      max-width: 1000px;
-      margin: auto;
-      transform: translateY(-1cm);
+    /* Finestra azzurro chiaro centrata */
+    .text-window {
+      background-color: #cce7ff;
+      padding: 30px 40px;
+      border-radius: 12px;
+      max-width: 800px;
+      margin: 30px auto;
+      text-align: center;
+      line-height: 1.6;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     }
 
-    .grid-item {
-      background-color: rgba(255, 255, 255, 0.85);
-      padding: 20px;
-      border-radius: 10px;
-      text-decoration: none;
-      color: #333;
-      transition: transform 0.3s, box-shadow 0.3s;
+    .text-window p {
+      margin: 0 0 10px 0;
+      font-weight: normal;
     }
 
-    .grid-item:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    /* Bottone Translate */
+    #translate-btn {
+      display: inline-block;
+      margin: 15px auto;
+      padding: 10px 20px;
+      background-color: #1abc9c;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s;
     }
 
-    /* ✅ UNICA MODIFICA */
-    .grid-item h2 {
-      margin-top: 0;
-      color: #2c3e50;
-      text-decoration: underline;
+    #translate-btn:hover {
+      background-color: #16a085;
     }
 
     footer {
@@ -155,27 +127,6 @@
       padding: 15px;
       background-color: #2c3e50;
       color: white;
-    }
-
-    /* Stili per il grassetto, corsivo e sottolineato */
-    .bold-text {
-      font-weight: bold;
-    }
-
-    .italic-text {
-      font-style: italic;
-    }
-
-    .underline-text {
-      text-decoration: underline;
-    }
-
-    #welcome-title {
-      margin-top: 2cm;
-    }
-
-    #explore-title {
-      margin-top: 0cm;
     }
   </style>
 </head>
@@ -198,38 +149,39 @@
 
 <main>
   <div class="titles-block">
-    <h1 id="welcome-title">Welcome to the website of Ilaria Cunico</h1>
-    <p id="explore-title">Explore my research areas and interests</p>
-    <p class="work-in-progress"><strong>The work on this website is in progress.</strong></p>
-  </div>
-
-  <div class="grid-container">
-    <a href="index.html" class="grid-item">
-      <h2 class="bold-text">Complex Systems</h2>
-      <p class="italic-text">Introduction to Complex Systems</p>
-    </a>
-    <a href="ecosystem.html" class="grid-item">
-      <h2 class="underline-text">Ecosystem Dynamics</h2>
-      <p class="italic-text">Research and Publications</p>
-    </a>
-    <a href="social.html" class="grid-item">
-      <h2 class="bold-text">Social Dynamics</h2>
-      <p class="italic-text">Cooperation projects</p>
-    </a>
-    <a href="philosophy.html" class="grid-item">
-      <h2 class="underline-text">Philosophy of Complexity</h2>
-      <p>The Age of Complexity</p>
-    </a>
-  </div>
-
-  <div class="background-text">
-    (Young fisherman, coast of Tanzania, December 2022)
+    <h1 id="welcome-title">Philosophy of Complexity</h1>
+    <div class="text-window" id="translate-content">
+      <p>Non temere, puoi avere qui tutto, subito e ora. Cibo indiano? Chiama Just eat. Vestiti dell'ultima sfilata? Vai su Amazon. Sesso? Iscriviti su Tinder. Viaggio? Prenota su Volagratis. Desiderio veloce, appagamento ancora più veloce.</p>
+      <p>Scadenze. Fare 100 cose alla volta, leggere 100 news alla volta, scorrere 100 storie instagram alla volta. Bravo, veloce, corri.</p>
+      <p>Hai successo come scienziato se pubblichi 1248 articoli in un anno, come artista se pubblichi 4474 album musicali in un anno, come regista se produci 4732 serie tv in un anno.</p>
+      <p>E se non produci sei out. "Eh, mi spiace, è il sistema, o ti adatti o sei fuori."</p>
+      <p>Ma, giusto per capire, qual è la qualità di quello che si scrive, si guarda, si ascolta? L'importanza degli obiettivi a lungo termine? Di un oggetto costruito con senso e che non si rompa due secondi dopo l'acquisto? Delle connessioni profonde? Delle amicizie ben coltivate? Del leggere un testo soffermandosi per ragionare in modo critico sul suo significato? Quasi rimpiango le ore infinite al liceo, passate a fare le parafrasi del Paradiso di Dante e le versioni di latino. Tanta difficoltà ma analisi profonde, vere, parola dopo parola.</p>
+      <p>E invece ora, tutto una corsa. Ma non provate anche voi questo grande senso d'affanno? Sempre indietro su tutto. Ogni volta che sento la parola multi-tasking gli occhi mi si rigirano all'indietro. Ma multi-tasking, cosa? È già tanto se mentre mi allaccio le scarpe riesco anche a respirare.</p>
+      <p>Fallire, essere out, in un sistema come questo non m'importa, anzi ne sarei anche un po' fiera.</p>
+      <p>Il fatto è che per cambiarlo bisogna continuare a starci e arrabattarsi. Soluzioni punk.</p>
+      <p>Ma è importante capire che lo dobbiamo migliorare, che lo dobbiamo rallentare, che gli obiettivi a breve termine non sono equiparabili a quelli a lungo termine, che dobbiamo prenderci il tempo per focalizzarsi bene su un testo specifico, di riflettere, di viaggiare lentamente, di conoscere persone vere, di raggiungere un obiettivo ben pensato. E che il qui tutto, subito ed ora non è sempre la soluzione migliore.</p>
+    </div>
+    <button id="translate-btn" onclick="translatePage()">Translate in English</button>
   </div>
 </main>
 
 <footer>
   <p>&copy; 2026 Ilaria Cunico</p>
 </footer>
+
+<!-- Google Translate script -->
+<script type="text/javascript">
+function translatePage() {
+  var gtScript = document.createElement('script');
+  gtScript.type = 'text/javascript';
+  gtScript.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+  document.body.appendChild(gtScript);
+}
+
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'it', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'translate-content');
+}
+</script>
 
 </body>
 </html>
