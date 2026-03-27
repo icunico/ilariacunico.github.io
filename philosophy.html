@@ -1,11 +1,21 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="description" content="Sito personale di Ilaria Cunico, con focus sulla filosofia della complessità, ecosistemi e dinamiche sociali">
-  <meta name="keywords" content="Ilaria Cunico, filosofia complessità, ecosistemi, dinamiche sociali, ricerca scientifica">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PXE62W3QKL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-PXE62W3QKL');
+  </script>
 
+  <meta charset="UTF-8">
+  <meta name="description" content="Philosophy of Complexity — Ilaria Cunico">
+  <meta name="keywords" content="Ilaria Cunico, Philosophy of Complexity, Ecological Modeling, Trophic Networks, Marine Science">
+  <meta name="author" content="Ilaria Cunico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
   <title>Philosophy of Complexity — Ilaria Cunico</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
@@ -76,6 +86,7 @@
       margin-top: -3cm;
     }
 
+    /* Finestra azzurro chiaro centrata */
     .text-window {
       background-color: #cce7ff;
       padding: 30px 40px;
@@ -87,52 +98,57 @@
       box-shadow: 0 5px 15px rgba(0,0,0,0.2);
       position: relative;
     }
-
     .text-window p {
       margin: 0 0 10px 0;
       font-weight: normal;
     }
 
-    .translate-btn {
-      margin-top: 20px;
-      padding: 8px 14px;
-      font-size: 0.95rem;
-      background-color: #3498db;
-      color: white;
+    /* Pulsante Translate */
+    #translate-btn {
+      margin-top: 15px;
+      padding: 8px 16px;
       border: none;
       border-radius: 6px;
+      background-color: #1abc9c;
+      color: white;
+      font-weight: bold;
       cursor: pointer;
     }
 
-    .like-container {
+    /* Pulsante Like e contatore */
+    #like-btn {
       position: absolute;
       bottom: 15px;
       right: 15px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .like-container button {
-      padding: 8px 14px;
-      font-size: 0.95rem;
-      background-color: #1abc9c;
+      padding: 6px 12px;
+      background-color: #ff6b6b;
       color: white;
       border: none;
       border-radius: 6px;
       cursor: pointer;
+      font-weight: bold;
     }
 
-    .reset-btn {
-      display: none; /* nascosto di default */
-      padding: 8px 14px;
-      font-size: 0.95rem;
-      background-color: #e74c3c;
+    #like-count {
+      position: absolute;
+      bottom: 15px;
+      right: 100px;
+      font-weight: bold;
+    }
+
+    /* Pulsante Azzera Likes (solo admin) */
+    #clear-likes-btn {
+      position: absolute;
+      bottom: 15px;
+      right: 220px;
+      padding: 6px 12px;
+      background-color: #555;
       color: white;
       border: none;
       border-radius: 6px;
       cursor: pointer;
-      margin-top: 10px;
+      font-weight: bold;
+      display: none;
     }
 
     footer {
@@ -164,7 +180,6 @@
   <div class="titles-block">
     <h1 id="welcome-title">Philosophy of Complexity</h1>
     <div class="text-window">
-
       <p>Non temere, puoi avere qui tutto, subito e ora. Cibo indiano? Chiama Just eat. Vestiti dell'ultima sfilata? Vai su Amazon. Sesso? Iscriviti su Tinder. Viaggio? Prenota su Volagratis. Desiderio veloce, appagamento ancora più veloce.</p>
       <p>Scadenze. Fare 100 cose alla volta, leggere 100 news alla volta, scorrere 100 storie instagram alla volta. Bravo, veloce, corri.</p>
       <p>Hai successo come scienziato se pubblichi 1248 articoli in un anno, come artista se pubblichi 4474 album musicali in un anno, come regista se produci 4732 serie tv in un anno.</p>
@@ -175,14 +190,15 @@
       <p>Il fatto è che per cambiarlo bisogna continuare a starci e arrabattarsi. Soluzioni punk.</p>
       <p>Ma è importante capire che lo dobbiamo migliorare, che lo dobbiamo rallentare, che gli obiettivi a breve termine non sono equiparabili a quelli a lungo termine, che dobbiamo prenderci il tempo per focalizzarsi bene su un testo specifico, di riflettere, di viaggiare lentamente, di conoscere persone vere, di raggiungere un obiettivo ben pensato. E che il qui tutto, subito ed ora non è sempre la soluzione migliore.</p>
 
-      <button class="translate-btn" id="translateBtn">Translate in English</button>
+      <!-- Pulsante Translate -->
+      <button id="translate-btn">Translate in English</button>
 
-      <div class="like-container">
-        <button id="like-btn">❤️ Like</button>
-        <span id="like-count">0</span>
-      </div>
+      <!-- Like button -->
+      <div id="like-count">Likes: 0</div>
+      <button id="like-btn">Like</button>
 
-      <button class="reset-btn" id="reset-btn">Azzerare Like</button>
+      <!-- Clear likes (solo admin) -->
+      <button id="clear-likes-btn">Azzera likes</button>
 
     </div>
   </div>
@@ -193,31 +209,47 @@
 </footer>
 
 <script>
-  // Contatore Like persistente
-  const likeBtn = document.getElementById('like-btn');
+  // Controllo admin
+  var isAdmin = true; // solo tu metti true, altri false
+
+  // Mostra pulsante "Azzera likes" solo admin
+  if (isAdmin) {
+    document.getElementById('clear-likes-btn').style.display = 'block';
+  }
+
+  // Gestione likes
+  let likes = localStorage.getItem('likes') ? parseInt(localStorage.getItem('likes')) : 0;
   const likeCount = document.getElementById('like-count');
-  const resetBtn = document.getElementById('reset-btn');
+  likeCount.textContent = "Likes: " + likes;
 
-  // Leggi il valore salvato
-  let count = parseInt(localStorage.getItem('likeCount')) || 0;
-  likeCount.textContent = count;
-
-  likeBtn.addEventListener('click', () => {
-    count++;
-    likeCount.textContent = count;
-    localStorage.setItem('likeCount', count);
+  document.getElementById('like-btn').addEventListener('click', () => {
+    likes++;
+    localStorage.setItem('likes', likes);
+    likeCount.textContent = "Likes: " + likes;
   });
 
-  // Pulsante azzeramento visibile solo a te
-  const isAdmin = true; // Cambia a false per utenti normali
-  if(isAdmin){
-    resetBtn.style.display = 'inline-block';
-    resetBtn.addEventListener('click', () => {
-      count = 0;
-      likeCount.textContent = count;
-      localStorage.setItem('likeCount', count);
-    });
-  }
+  document.getElementById('clear-likes-btn').addEventListener('click', () => {
+    likes = 0;
+    localStorage.setItem('likes', likes);
+    likeCount.textContent = "Likes: " + likes;
+  });
+
+  // Translate in English
+  document.getElementById('translate-btn').addEventListener('click', () => {
+    const paragraphs = document.querySelectorAll('.text-window p');
+    const translations = [
+      "Do not fear, you can have everything here, immediately and now. Indian food? Call Just Eat. Clothes from the latest fashion show? Go on Amazon. Sex? Sign up on Tinder. Trip? Book on Volagratis. Fast desire, even faster gratification.",
+      "Deadlines. Doing 100 things at once, reading 100 news at once, scrolling 100 Instagram stories at once. Good, fast, run.",
+      "You are successful as a scientist if you publish 1248 articles in a year, as an artist if you publish 4474 music albums in a year, as a director if you produce 4732 TV series in a year.",
+      "And if you do not produce, you are out. \"Sorry, it's the system, adapt or be out.\"",
+      "But, just to understand, what is the quality of what you write, watch, listen to? The importance of long-term goals? An object built with sense and that does not break two seconds after purchase? Deep connections? Well-cultivated friendships? Reading a text carefully to think critically about its meaning? I almost miss the endless hours in high school, spent doing paraphrases of Dante's Paradise and Latin translations. So much difficulty, but deep, real analysis, word by word.",
+      "And now, everything is a race. Don't you also feel this great sense of breathlessness? Always behind on everything. Every time I hear the word multi-tasking, my eyes roll back. But multi-tasking, what? It's already a lot if while tying my shoes I can also breathe.",
+      "Failing, being out, in a system like this does not bother me, on the contrary, I would even be a bit proud.",
+      "The fact is that to change it you have to keep being there and struggling. Punk solutions.",
+      "But it is important to understand that we must improve it, slow it down, that short-term goals are not equivalent to long-term ones, that we must take time to focus well on a specific text, reflect, travel slowly, meet real people, reach a well-thought-out goal. And that the here and now is not always the best solution."
+    ];
+    paragraphs.forEach((p, i) => p.textContent = translations[i]);
+  });
 </script>
 
 </body>
