@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PXE62W3QKL"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-PXE62W3QKL');
-  </script>
-
   <meta charset="UTF-8">
   <meta name="description" content="Sito personale di Ilaria Cunico, con focus sulla filosofia della complessità, ecosistemi e dinamiche sociali">
   <meta name="keywords" content="Ilaria Cunico, filosofia complessità, ecosistemi, dinamiche sociali, ricerca scientifica">
@@ -102,6 +93,17 @@
       font-weight: normal;
     }
 
+    .translate-btn {
+      margin-top: 20px;
+      padding: 8px 14px;
+      font-size: 0.95rem;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
     .like-container {
       position: absolute;
       bottom: 15px;
@@ -121,15 +123,16 @@
       cursor: pointer;
     }
 
-    .translate-btn {
-      margin-top: 20px;
+    .reset-btn {
+      display: none; /* nascosto di default */
       padding: 8px 14px;
       font-size: 0.95rem;
-      background-color: #3498db;
+      background-color: #e74c3c;
       color: white;
       border: none;
       border-radius: 6px;
       cursor: pointer;
+      margin-top: 10px;
     }
 
     footer {
@@ -172,14 +175,14 @@
       <p>Il fatto è che per cambiarlo bisogna continuare a starci e arrabattarsi. Soluzioni punk.</p>
       <p>Ma è importante capire che lo dobbiamo migliorare, che lo dobbiamo rallentare, che gli obiettivi a breve termine non sono equiparabili a quelli a lungo termine, che dobbiamo prenderci il tempo per focalizzarsi bene su un testo specifico, di riflettere, di viaggiare lentamente, di conoscere persone vere, di raggiungere un obiettivo ben pensato. E che il qui tutto, subito ed ora non è sempre la soluzione migliore.</p>
 
-      <!-- Pulsante Translate in English sotto il testo -->
       <button class="translate-btn" id="translateBtn">Translate in English</button>
 
-      <!-- Pulsante Like in basso a destra -->
       <div class="like-container">
         <button id="like-btn">❤️ Like</button>
         <span id="like-count">0</span>
       </div>
+
+      <button class="reset-btn" id="reset-btn">Azzerare Like</button>
 
     </div>
   </div>
@@ -190,27 +193,32 @@
 </footer>
 
 <script>
-  // Translate in English button (demo)
-  const translateBtn = document.getElementById('translateBtn');
-  translateBtn.addEventListener('click', () => {
-    alert("Questa funzione può essere collegata a un traduttore, ma il testo rimane in italiano.");
-  });
-
-  // Like button with localStorage
-  let likeCount = localStorage.getItem('likeCount') ? parseInt(localStorage.getItem('likeCount')) : 0;
+  // Contatore Like persistente
   const likeBtn = document.getElementById('like-btn');
-  const likeDisplay = document.getElementById('like-count');
-  likeDisplay.textContent = likeCount;
+  const likeCount = document.getElementById('like-count');
+  const resetBtn = document.getElementById('reset-btn');
+
+  // Leggi il valore salvato
+  let count = parseInt(localStorage.getItem('likeCount')) || 0;
+  likeCount.textContent = count;
 
   likeBtn.addEventListener('click', () => {
-    likeCount++;
-    likeDisplay.textContent = likeCount;
-    localStorage.setItem('likeCount', likeCount);
+    count++;
+    likeCount.textContent = count;
+    localStorage.setItem('likeCount', count);
   });
-</script>
 
-</body>
-</html>
+  // Pulsante azzeramento visibile solo a te
+  const isAdmin = true; // Cambia a false per utenti normali
+  if(isAdmin){
+    resetBtn.style.display = 'inline-block';
+    resetBtn.addEventListener('click', () => {
+      count = 0;
+      likeCount.textContent = count;
+      localStorage.setItem('likeCount', count);
+    });
+  }
+</script>
 
 </body>
 </html>
