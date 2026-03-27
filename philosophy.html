@@ -11,6 +11,10 @@
   </script>
 
   <meta charset="UTF-8">
+  <meta name="description" content="Sito personale di Ilaria Cunico, con focus sulla filosofia della complessità, ecosistemi e dinamiche sociali">
+  <meta name="keywords" content="Ilaria Cunico, filosofia complessità, ecosistemi, dinamiche sociali, ricerca scientifica">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Philosophy of Complexity — Ilaria Cunico</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
@@ -70,7 +74,7 @@
     }
 
     main {
-      background-image: url('sfondo1.jpg'); /* metti la tua immagine qui */
+      background-image: url('sfondo1.jpg');
       background-size: cover;
       background-position: center;
       min-height: 100vh;
@@ -92,30 +96,43 @@
       text-align: center;
       line-height: 1.6;
       box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      position: relative;
     }
 
     .text-window p {
-      margin: 0 0 15px 0; /* margine inferiore uniforme */
+      margin: 0 0 10px 0;
       font-weight: normal;
-      line-height: 1.6; /* distanza linee uniforme */
     }
 
-    /* Pulsante traduzione */
-    .translate-btn {
-      display: block;
-      margin: 20px auto 0 auto;
-      padding: 10px 20px;
+    /* Pulsante Like in basso a destra */
+    .like-container {
+      position: absolute;
+      bottom: 15px;
+      right: 15px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .like-container button {
+      padding: 8px 14px;
+      font-size: 0.95rem;
       background-color: #1abc9c;
       color: white;
       border: none;
       border-radius: 6px;
       cursor: pointer;
-      font-size: 1rem;
-      transition: background-color 0.3s;
     }
 
-    .translate-btn:hover {
-      background-color: #15977a;
+    .translate-btn {
+      margin-bottom: 20px;
+      padding: 8px 14px;
+      font-size: 0.95rem;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
     }
 
     footer {
@@ -146,7 +163,9 @@
 <main>
   <div class="titles-block">
     <h1 id="welcome-title">Philosophy of Complexity</h1>
-    <div class="text-window" id="complexity-text">
+    <div class="text-window">
+      <button class="translate-btn" id="translateBtn">Translate in English</button>
+
       <p>Non temere, puoi avere qui tutto, subito e ora. Cibo indiano? Chiama Just eat. Vestiti dell'ultima sfilata? Vai su Amazon. Sesso? Iscriviti su Tinder. Viaggio? Prenota su Volagratis. Desiderio veloce, appagamento ancora più veloce.</p>
       <p>Scadenze. Fare 100 cose alla volta, leggere 100 news alla volta, scorrere 100 storie instagram alla volta. Bravo, veloce, corri.</p>
       <p>Hai successo come scienziato se pubblichi 1248 articoli in un anno, come artista se pubblichi 4474 album musicali in un anno, come regista se produci 4732 serie tv in un anno.</p>
@@ -156,8 +175,13 @@
       <p>Fallire, essere out, in un sistema come questo non m'importa, anzi ne sarei anche un po' fiera.</p>
       <p>Il fatto è che per cambiarlo bisogna continuare a starci e arrabattarsi. Soluzioni punk.</p>
       <p>Ma è importante capire che lo dobbiamo migliorare, che lo dobbiamo rallentare, che gli obiettivi a breve termine non sono equiparabili a quelli a lungo termine, che dobbiamo prenderci il tempo per focalizzarsi bene su un testo specifico, di riflettere, di viaggiare lentamente, di conoscere persone vere, di raggiungere un obiettivo ben pensato. E che il qui tutto, subito ed ora non è sempre la soluzione migliore.</p>
+
+      <!-- Pulsante Like in basso a destra -->
+      <div class="like-container">
+        <button id="like-btn">❤️ Like</button>
+        <span id="like-count">0</span>
+      </div>
     </div>
-    <button class="translate-btn" onclick="translateText()">Traduci in inglese</button>
   </div>
 </main>
 
@@ -166,28 +190,21 @@
 </footer>
 
 <script>
-  function translateText() {
-    const el = document.getElementById("complexity-text");
-    if (el.dataset.translated === "true") {
-      el.innerHTML = el.dataset.original;
-      el.dataset.translated = "false";
-    } else {
-      // Testo tradotto in inglese (puoi personalizzare)
-      el.dataset.original = el.innerHTML;
-      el.innerHTML = `
-        <p>Do not fear, you can have everything here, immediately and now. Indian food? Call Just Eat. Latest fashion clothes? Go on Amazon. Sex? Sign up on Tinder. Trip? Book on Volagratis. Fast desire, even faster satisfaction.</p>
-        <p>Deadlines. Do 100 things at once, read 100 news at once, scroll 100 Instagram stories at once. Good, fast, run.</p>
-        <p>You succeed as a scientist if you publish 1248 articles in a year, as an artist if you release 4474 music albums in a year, as a director if you produce 4732 TV series in a year.</p>
-        <p>And if you don't produce, you are out. "Sorry, it's the system, you adapt or you're out."</p>
-        <p>But, just to understand, what is the quality of what is written, watched, listened to? The importance of long-term goals? Of an object built with meaning that does not break two seconds after purchase? Deep connections? Well-cultivated friendships? Reading a text carefully to reason critically about its meaning? I almost miss the endless hours in high school, doing paraphrases of Dante's Paradise and Latin exercises. Much difficulty, but deep, true analysis, word by word.</p>
-        <p>And now, everything is a rush. Don't you also feel this great sense of hurry? Always behind on everything. Every time I hear the word multi-tasking, my eyes roll back. But multi-tasking, what? It's already a lot if while tying my shoes I can also breathe.</p>
-        <p>Failing, being out, in a system like this doesn't bother me, in fact I would even be a little proud.</p>
-        <p>The fact is that to change it, you have to keep being in it and struggle. Punk solutions.</p>
-        <p>But it is important to understand that we must improve it, slow it down, that short-term goals are not equivalent to long-term ones, that we must take the time to focus well on a specific text, reflect, travel slowly, meet real people, achieve a well-thought-out goal. And that here everything, immediately and now is not always the best solution.</p>
-      `;
-      el.dataset.translated = "true";
-    }
-  }
+  // Translate in English button (solo demo)
+  const translateBtn = document.getElementById('translateBtn');
+  translateBtn.addEventListener('click', () => {
+    alert("Questa funzione può essere collegata a un traduttore, ma il testo rimane in italiano.");
+  });
+
+  // Like button
+  let likeCount = 0;
+  const likeBtn = document.getElementById('like-btn');
+  const likeDisplay = document.getElementById('like-count');
+
+  likeBtn.addEventListener('click', () => {
+    likeCount++;
+    likeDisplay.textContent = likeCount;
+  });
 </script>
 
 </body>
