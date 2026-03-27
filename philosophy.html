@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PXE62W3QKL"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-PXE62W3QKL');
-  </script>
-
   <meta charset="UTF-8">
   <title>Philosophy of Complexity — Ilaria Cunico</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
@@ -19,6 +10,7 @@
       margin: 0;
       padding: 0;
       font-family: 'Roboto', sans-serif;
+      background-color: #f0f4f8;
     }
 
     header {
@@ -70,12 +62,8 @@
     }
 
     main {
-      background-image: url('sfondo1.jpg'); /* metti la tua immagine qui */
-      background-size: cover;
-      background-position: center;
       min-height: 100vh;
       padding: 100px 30px 50px 30px;
-      position: relative;
     }
 
     .titles-block {
@@ -93,10 +81,21 @@
       line-height: 1.6;
       box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     }
-
     .text-window p {
-      margin: 0 0 15px 0;
+      margin: 0 0 12px 0;
       font-weight: normal;
+    }
+
+    /* Bottone traduzione */
+    .translate-button {
+      margin-top: 20px;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 5px;
+      background-color: #1abc9c;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
     }
 
     footer {
@@ -128,15 +127,49 @@
   <div class="titles-block">
     <h1 id="welcome-title">Philosophy of Complexity</h1>
     <div class="text-window">
-      <p>Non temere, puoi avere qui tutto, subito e ora. Cibo indiano? Chiama Just eat. Vestiti dell'ultima sfilata? Vai su Amazon. Sesso? Iscriviti su Tinder. Viaggio? Prenota su Volagratis. Desiderio veloce, appagamento ancora più veloce.</p>
-      <p>Scadenze. Fare 100 cose alla volta, leggere 100 news alla volta, scorrere 100 storie instagram alla volta. Bravo, veloce, corri.</p>
-      <p>Hai successo come scienziato se pubblichi 1248 articoli in un anno, come artista se pubblichi 4474 album musicali in un anno, come regista se produci 4732 serie tv in un anno.</p>
-      <p>E se non produci sei out. "Eh, mi spiace, è il sistema, o ti adatti o sei fuori."</p>
-      <p>Ma, giusto per capire, qual è la qualità di quello che si scrive, si guarda, si ascolta? L'importanza degli obiettivi a lungo termine? Di un oggetto costruito con senso e che non si rompa subito? Delle connessioni profonde? Delle amicizie ben coltivate? Del leggere un testo soffermandosi per ragionare in modo critico sul suo significato? Quasi rimpiango le ore infinite al liceo, passate a fare le parafrasi dei testi classici e le versioni di latino: tanta difficoltà, ma analisi profonde, vere, parola dopo parola.</p>
-      <p>E invece ora, tutto una corsa. Ma non provate anche voi questo grande senso d'affanno? Sempre indietro su tutto. Ogni volta che sento la parola multi-tasking gli occhi mi si rigirano all'indietro. Ma multi-tasking, cosa? È già tanto se mentre mi allaccio le scarpe riesco anche a respirare.</p>
-      <p>Fallire, essere out, in un sistema come questo non m'importa, anzi ne sarei anche un po' fiera.</p>
-      <p>Il fatto è che per cambiarlo bisogna continuare a starci e arrabattarsi. Soluzioni punk.</p>
-      <p>Ma è importante capire che lo dobbiamo migliorare, che lo dobbiamo rallentare, che gli obiettivi a breve termine non sono equiparabili a quelli a lungo termine, che dobbiamo prenderci il tempo per focalizzarsi bene su un testo specifico, riflettere, viaggiare lentamente, conoscere persone vere e raggiungere un obiettivo ben pensato. Il qui, tutto subito ed ora, non è sempre la soluzione migliore.</p>
+      <!-- Testo in italiano -->
+      <p id="italian-text">
+        Non temere, puoi avere qui tutto, subito e ora. Cibo indiano? Chiama Just eat. Vestiti dell'ultima sfilata? Vai su Amazon. Sesso? Iscriviti su Tinder. Viaggio? Prenota su Volagratis. Desiderio veloce, appagamento ancora più veloce.
+      </p>
+      <p>
+        Scadenze. Fare 100 cose alla volta, leggere 100 news alla volta, scorrere 100 storie instagram alla volta. Bravo, veloce, corri.
+      </p>
+      <p>
+        Hai successo come scienziato se pubblichi 1248 articoli in un anno, come artista se pubblichi 4474 album musicali in un anno, come regista se produci 4732 serie tv in un anno.
+      </p>
+      <p>
+        E se non produci sei out. "Eh, mi spiace, è il sistema, o ti adatti o sei fuori."
+      </p>
+      <p>
+        Ma, giusto per capire, qual è la qualità di quello che si scrive, si guarda, si ascolta? L'importanza degli obiettivi a lungo termine? Di un oggetto costruito con senso e che non si rompa due secondi dopo l'acquisto? Delle connessioni profonde? Delle amicizie ben coltivate? Del leggere un testo soffermandosi per ragionare in modo critico sul suo significato? Quasi rimpiango le ore infinite al liceo, passate a fare le parafrasi del Paradiso di Dante e le versioni di latino. Tanta difficoltà ma analisi profonde, vere, parola dopo parola.
+      </p>
+      <p>
+        E invece ora, tutto una corsa. Ma non provate anche voi questo grande senso d'affanno? Sempre indietro su tutto. Ogni volta che sento la parola multi-tasking gli occhi mi si rigirano all'indietro. Ma multi-tasking, cosa? È già tanto se mentre mi allaccio le scarpe riesco anche a respirare.
+      </p>
+      <p>
+        Fallire, essere out, in un sistema come questo non m'importa, anzi ne sarei anche un po' fiera.
+      </p>
+      <p>
+        Il fatto è che per cambiarlo bisogna continuare a starci e arrabattarsi. Soluzioni punk.
+      </p>
+      <p>
+        Ma è importante capire che lo dobbiamo migliorare, che lo dobbiamo rallentare, che gli obiettivi a breve termine non sono equiparabili a quelli a lungo termine, che dobbiamo prenderci il tempo per focalizzarsi bene su un testo specifico, di riflettere, di viaggiare lentamente, di conoscere persone vere, di raggiungere un obiettivo ben pensato. E che il qui tutto, subito ed ora non è sempre la soluzione migliore.
+      </p>
+
+      <!-- Traduzione inglese nascosta -->
+      <p id="english-text" style="display:none; margin-top:20px;">
+        Do not fear, you can have everything here, immediately and now. Indian food? Call Just Eat. Clothes from the latest fashion show? Go on Amazon. Sex? Sign up on Tinder. Trip? Book on Volagratis. Quick desire, even faster satisfaction.
+        Deadlines. Doing 100 things at once, reading 100 news items at once, scrolling through 100 Instagram stories at once. Fast, quick, go.
+        You succeed as a scientist if you publish 1248 articles in a year, as an artist if you release 4474 music albums in a year, as a director if you produce 4732 TV series in a year.
+        And if you do not produce, you are out. "Sorry, it’s the system, adapt or leave."
+        But just to understand, what is the quality of what is written, watched, listened to? Importance of long-term goals? Of an object built with sense that does not break immediately? Deep connections? Well-cultivated friendships? Reading a text while reflecting critically on its meaning? I almost miss the endless hours at high school, spent making paraphrases of Dante's Paradise and Latin exercises. Much difficulty but deep, true analysis, word by word.
+        And now, everything is a race. Do you also feel this huge sense of rush? Always behind on everything. Every time I hear the word multi-tasking my eyes roll back. But multi-tasking, what? It’s already much if I can breathe while tying my shoes.
+        Failing, being out, in a system like this doesn’t bother me, in fact I’m even a little proud of it.
+        To change it, you have to stay in it and struggle. Punk solutions.
+        It is important to understand that we must improve it, slow it down, that short-term goals are not equivalent to long-term ones, and we must take the time to focus well on a specific text, reflect, travel slowly, meet real people, and achieve a well-thought-out goal. And that “everything, immediately and now” is not always the best solution.
+      </p>
+
+      <button class="translate-button" onclick="toggleTranslation()">Show English Translation</button>
     </div>
   </div>
 </main>
@@ -144,6 +177,20 @@
 <footer>
   <p>&copy; 2026 Ilaria Cunico</p>
 </footer>
+
+<script>
+  function toggleTranslation() {
+    const eng = document.getElementById("english-text");
+    const btn = event.target;
+    if (eng.style.display === "none") {
+      eng.style.display = "block";
+      btn.textContent = "Hide English Translation";
+    } else {
+      eng.style.display = "none";
+      btn.textContent = "Show English Translation";
+    }
+  }
+</script>
 
 </body>
 </html>
