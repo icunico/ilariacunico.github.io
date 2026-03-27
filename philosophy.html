@@ -120,35 +120,22 @@
       position: absolute;
       bottom: 15px;
       right: 15px;
-      padding: 6px 12px;
-      background-color: #ff6b6b;
-      color: white;
+      padding: 8px;
+      background-color: transparent;
       border: none;
-      border-radius: 6px;
       cursor: pointer;
-      font-weight: bold;
+      font-size: 24px;
+    }
+
+    #like-btn.liked {
+      color: red;
     }
 
     #like-count {
       position: absolute;
       bottom: 15px;
-      right: 100px;
+      right: 60px;
       font-weight: bold;
-    }
-
-    /* Pulsante Azzera Likes (solo admin) */
-    #clear-likes-btn {
-      position: absolute;
-      bottom: 15px;
-      right: 220px;
-      padding: 6px 12px;
-      background-color: #555;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: bold;
-      display: none;
     }
 
     footer {
@@ -195,10 +182,7 @@
 
       <!-- Like button -->
       <div id="like-count">Likes: 0</div>
-      <button id="like-btn">Like</button>
-
-      <!-- Clear likes (solo admin) -->
-      <button id="clear-likes-btn">Azzera likes</button>
+      <button id="like-btn">&#10084;</button> <!-- Cuore come simbolo Like -->
 
     </div>
   </div>
@@ -209,48 +193,24 @@
 </footer>
 
 <script>
-  // Controllo admin
-  var isAdmin = true; // solo tu metti true, altri false
+  // Variabili per il like
+  let likeBtn = document.getElementById('like-btn');
+  let likeCount = document.getElementById('like-count');
+  let likes = 0;
 
-  // Mostra pulsante "Azzera likes" solo admin
-  if (isAdmin) {
-    document.getElementById('clear-likes-btn').style.display = 'block';
-  }
-
-  // Gestione likes
-  let likes = localStorage.getItem('likes') ? parseInt(localStorage.getItem('likes')) : 0;
-  const likeCount = document.getElementById('like-count');
-  likeCount.textContent = "Likes: " + likes;
-
-  document.getElementById('like-btn').addEventListener('click', () => {
-    likes++;
-    localStorage.setItem('likes', likes);
-    likeCount.textContent = "Likes: " + likes;
+  // Gestione dei like
+  likeBtn.addEventListener('click', function() {
+    if (likeBtn.classList.contains('liked')) {
+      likeBtn.classList.remove('liked');
+      likes--;
+    } else {
+      likeBtn.classList.add('liked');
+      likes++;
+    }
+    likeCount.innerText = 'Likes: ' + likes;
+    localStorage.setItem('likes', likes); // Salva i likes nel localStorage
   });
 
-  document.getElementById('clear-likes-btn').addEventListener('click', () => {
-    likes = 0;
-    localStorage.setItem('likes', likes);
-    likeCount.textContent = "Likes: " + likes;
-  });
-
-  // Translate in English
-  document.getElementById('translate-btn').addEventListener('click', () => {
-    const paragraphs = document.querySelectorAll('.text-window p');
-    const translations = [
-      "Do not fear, you can have everything here, immediately and now. Indian food? Call Just Eat. Clothes from the latest fashion show? Go on Amazon. Sex? Sign up on Tinder. Trip? Book on Volagratis. Fast desire, even faster gratification.",
-      "Deadlines. Doing 100 things at once, reading 100 news at once, scrolling 100 Instagram stories at once. Good, fast, run.",
-      "You are successful as a scientist if you publish 1248 articles in a year, as an artist if you publish 4474 music albums in a year, as a director if you produce 4732 TV series in a year.",
-      "And if you do not produce, you are out. \"Sorry, it's the system, adapt or be out.\"",
-      "But, just to understand, what is the quality of what you write, watch, listen to? The importance of long-term goals? An object built with sense and that does not break two seconds after purchase? Deep connections? Well-cultivated friendships? Reading a text carefully to think critically about its meaning? I almost miss the endless hours in high school, spent doing paraphrases of Dante's Paradise and Latin translations. So much difficulty, but deep, real analysis, word by word.",
-      "And now, everything is a race. Don't you also feel this great sense of breathlessness? Always behind on everything. Every time I hear the word multi-tasking, my eyes roll back. But multi-tasking, what? It's already a lot if while tying my shoes I can also breathe.",
-      "Failing, being out, in a system like this does not bother me, on the contrary, I would even be a bit proud.",
-      "The fact is that to change it you have to keep being there and struggling. Punk solutions.",
-      "But it is important to understand that we must improve it, slow it down, that short-term goals are not equivalent to long-term ones, that we must take time to focus well on a specific text, reflect, travel slowly, meet real people, reach a well-thought-out goal. And that the here and now is not always the best solution."
-    ];
-    paragraphs.forEach((p, i) => p.textContent = translations[i]);
-  });
-</script>
-
-</body>
-</html>
+  // Carica i likes dal localStorage
+  window.onload = function() {
+    if (local
