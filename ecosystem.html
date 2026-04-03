@@ -96,37 +96,28 @@
       text-align: center;
     }
 
-    .paper-link, .translate-button, .like-button {
+    .ecosystem-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 40px;
+      flex-wrap: wrap;
+    }
+
+    .ecosystem-buttons a {
       display: inline-block;
-      margin-top: 20px;
-      padding: 12px 20px;
+      padding: 20px 40px;
+      font-size: 1.5rem;
       background-color: #1abc9c;
       color: white;
       text-decoration: none;
-      border-radius: 8px;
+      border-radius: 12px;
       font-weight: bold;
       transition: background-color 0.3s;
-      cursor: pointer;
-      margin-right: 10px;
     }
 
-    .paper-link:hover, .translate-button:hover, .like-button:hover {
+    .ecosystem-buttons a:hover {
       background-color: #16a085;
-    }
-
-    .like-button {
-      background-color: #e74c3c;
-    }
-
-    .like-button.liked {
-      background-color: #c0392b;
-    }
-
-    footer {
-      text-align: center;
-      padding: 15px;
-      background-color: #2c3e50;
-      color: white;
     }
 
     figure {
@@ -143,6 +134,13 @@
       font-size: 0.9rem;
       margin-top: 5px;
       color: #333;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background-color: #2c3e50;
+      color: white;
     }
   </style>
 </head>
@@ -184,31 +182,16 @@
 
     <p>Purtroppo, il cambiamento climatico, alimentato dalla crescente pressione antropica, sta alterando profondamente i disturbi esterni che agiscono sugli ecosistemi. In molte aree del mondo, questi disturbi diventano sempre più intensi e concentrati, spingendo i sistemi lontano dal delicato confine tra ordine e caos. Gli ecosistemi rischiano di precipitare in un caos totale, dove ogni previsione diventa impossibile, oppure di cristallizzarsi in uno stato stazionario permanente — una condizione priva di interazioni vitali, che equivale alla morte della biodiversità. La danza tra ordine e caos sta perdendo il ritmo, spingendosi verso uno spazio dei parametri ignoto. La scienza, e questa tesi come piccolo contributo, mira a comprendere le dinamiche fondamentali dell’ecosistema, per poterlo capire a fondo e contribuire alla sua conservazione e tutela.</p>
 
-    <button class="translate-button" onclick="translateText()">Translate to English</button>
-    <button class="like-button" onclick="toggleLike()">❤ Like</button>
-
-    <p style="margin-top:30px;">
-      <a class="paper-link" href="river_ecosystem.html" target="_blank">River Ecosystem Dynamics</a>
-      <a class="paper-link" href="marine_ecosystem.html" target="_blank">Marine Ecosystem Dynamics</a>
-    </p>
+    <div class="ecosystem-buttons">
+      <a href="river_ecosystem.html" target="_blank">River Ecosystem Dynamics</a>
+      <a href="marine_ecosystem.html" target="_blank">Marine Ecosystem Dynamics</a>
+    </div>
   </div>
 </main>
 
 <footer>
   <p>&copy; 2026 Ilaria Cunico</p>
 </footer>
-
-<script>
-  function translateText() {
-    alert("Funzione di traduzione in inglese da implementare qui!");
-    // Qui potremmo inserire la logica per tradurre il testo
-  }
-
-  function toggleLike() {
-    const btn = document.querySelector('.like-button');
-    btn.classList.toggle('liked');
-  }
-</script>
 
 </body>
 </html>
