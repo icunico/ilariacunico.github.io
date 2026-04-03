@@ -72,28 +72,6 @@
       color: #1abc9c;
     }
 
-    /* Bottone traduzione in alto a destra */
-    .translate-button-container {
-      text-align: right;
-      padding: 10px 30px;
-      background: #f7f7f7;
-    }
-
-    .translate-button-container a {
-      display: inline-block;
-      padding: 10px 20px;
-      background-color: #3498db;
-      color: white;
-      font-weight: bold;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: background-color 0.3s;
-    }
-
-    .translate-button-container a:hover {
-      background-color: #2980b9;
-    }
-
     main {
       background-image: url('sfondo1.jpg');
       background-size: cover;
@@ -185,13 +163,23 @@
   </nav>
 </header>
 
-<!-- Pulsante Traduci in inglese -->
-<div class="translate-button-container">
-  <a href="ecosystem_en.html">Traduci in inglese</a>
-</div>
-
 <main>
   <div class="content-box">
+    <!-- Pulsante Traduci in inglese in alto a sinistra -->
+    <div style="text-align: left; margin-bottom: 20px;">
+      <a href="ecosystem_en.html" style="
+          padding: 8px 16px; 
+          background-color: #3498db; 
+          color: white; 
+          font-weight: bold; 
+          border-radius: 6px; 
+          text-decoration: none;
+          transition: background-color 0.3s;
+      " onmouseover="this.style.backgroundColor='#2980b9'" onmouseout="this.style.backgroundColor='#3498db'">
+        Traduci in inglese
+      </a>
+    </div>
+
     <h1>Ecosistemi — Una danza al confine tra ordine e caos</h1>
 
     <p>Ordine nel disordine. Semplicità nella complessità. La realtà è coesistenza di contraddizioni. Ma com’è possibile? La scienza ce lo spiega. Gli ecosistemi, reti interconnesse di biodiversità, sono sistemi complessi caotici. Piccole variazioni delle condizioni iniziali presenti possono provocare grandi cambiamenti futuri, proprio come una farfalla che batte le ali in Asia può generare un uragano in Texas.</p>
