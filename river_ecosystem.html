@@ -90,45 +90,17 @@
       text-align: left;
     }
 
-    .conference-tag {
-      display: inline-block;
-      background-color: #2c3e50;
-      color: #1abc9c;
-      padding: 6px 14px;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      font-weight: bold;
-      margin-bottom: 15px;
-    }
-
     .poster-container {
       margin: 20px 0 30px 0;
       text-align: center;
     }
 
-    .poster-img {
+    .poster-viewer {
       width: 100%;
-      max-width: 900px;
-      height: auto;
+      height: 800px;
       border: 1px solid #2c3e50;
       border-radius: 8px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    }
-
-    .open-fullscreen-btn {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 10px 20px;
-      background-color: #3498db;
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 6px;
-      transition: background-color 0.3s;
-    }
-
-    .open-fullscreen-btn:hover {
-      background-color: #2980b9;
     }
 
     .back-link {
@@ -175,7 +147,7 @@
 
 <main>
   <div class="content-box">
-    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+    <div style="margin-bottom: 20px;">
       <a href="river_ecosystem_en.html" style="
           padding: 8px 16px; 
           background-color: #3498db; 
@@ -187,16 +159,14 @@
       " onmouseover="this.style.backgroundColor='#2980b9'" onmouseout="this.style.backgroundColor='#3498db'">
         Traduci in inglese
       </a>
-      <span class="conference-tag">Dynamics Days Europe 2026 — Lisbon</span>
     </div>
 
-    <!-- Visualizzazione diretta del Poster -->
+    <!-- Visualizzazione diretta e immediata del PDF integrato -->
     <div class="poster-container">
-      <img src="poster.png" alt="Poster Dynamics Days Europe 2026 - Ilaria Cunico" class="poster-img">
-      <br>
-      <a href="PosterDDE_Chaos_Multistability.pdf" target="_blank" class="open-fullscreen-btn">
-        📄 Apri o scarica il PDF originale ad alta risoluzione
-      </a>
+      <iframe src="PosterDDE_Chaos_Multistability.pdf" class="poster-viewer">
+        Il tuo browser non supporta la visualizzazione diretta dei PDF. 
+        Puoi comunque <a href="PosterDDE_Chaos_Multistability.pdf" target="_blank">aprire il poster qui</a>.
+      </iframe>
     </div>
 
     <div style="text-align: center;">
