@@ -126,9 +126,10 @@
       text-align: center;
     }
 
-    .poster-viewer {
+    .poster-img {
       width: 100%;
-      height: 750px;
+      max-width: 900px;
+      height: auto;
       border: 1px solid #2c3e50;
       border-radius: 8px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.15);
@@ -136,7 +137,7 @@
 
     .open-fullscreen-btn {
       display: inline-block;
-      margin-top: 10px;
+      margin-top: 15px;
       padding: 10px 20px;
       background-color: #3498db;
       color: white;
@@ -219,15 +220,12 @@
 
     <hr style="border: 0; height: 1px; background: #abc;">
 
-    <!-- Visualizzatore diretto del Poster PDF -->
+    <!-- Visualizzazione diretta del Poster (Immagine nativa) -->
     <div class="poster-container">
-      <iframe src="PosterDDE_Chaos_Multistability.pdf" class="poster-viewer">
-        Il tuo browser non supporta la visualizzazione diretta dei PDF. 
-        Puoi comunque <a href="PosterDDE_Chaos_Multistability.pdf" target="_blank">aprire il poster qui</a>.
-      </iframe>
+      <img src="poster.png" alt="Poster Dynamics Days Europe 2026 - Ilaria Cunico" class="poster-img">
       <br>
       <a href="PosterDDE_Chaos_Multistability.pdf" target="_blank" class="open-fullscreen-btn">
-        🔍 Apri poster a schermo intero (PDF)
+        📄 Apri o scarica il PDF originale ad alta risoluzione
       </a>
     </div>
 
